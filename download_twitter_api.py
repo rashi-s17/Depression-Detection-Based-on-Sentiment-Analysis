@@ -1,13 +1,14 @@
-from tweepy.streaming import StreamListener
+# from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
+import tweepy
 
-consumer_key = 'FbOXW5Kwadxvc8nO5M4P2tbuu'
-consumer_secret = 'jEZe6sTjXNyvTGDXZ0pPsd9P2h6X3tcjJ8BJDepxeX1ScNeXC2'
-access_token = '1510607537833648133-23hWzK2fwA4KyMBcW1LgXRVzt0CmxU'
-access_secret = 'vRZaCO6W37zadUKKoWMkyT8HOHExeJSZtjccXWIMrsUtk'
+consumer_key = 'nL1EweQ6kn63vrvTeuNMymp2Y'
+consumer_secret = 'oxbAQXiUcx8ZP2DshyC3PTfFUuXoZXFLuNsAygoynnVu98VgQL'
+access_token = '1510607537833648133-bC2QkH99PdTwf9FXEdjjtdOVxq8l9O'
+access_secret = 'ojV6JJwkUADbi0jv1PGA2FYUc6D4UzYeOdJGHwnAJspcu'
 
-class StdOutListener(StreamListener):
+class StdOutListener(tweepy.Stream):
 
     def on_data(self, data):
         with open('data/tweetdata.txt','a') as tf:
@@ -20,8 +21,7 @@ class StdOutListener(StreamListener):
 
 
 if __name__ == '__main__':
-
-
+    
     l = StdOutListener()
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
