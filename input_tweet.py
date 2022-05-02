@@ -54,16 +54,11 @@ def plot_confusion_matrix(cm, classes,
     plt.ylabel('True label')
     plt.xlabel('Predicted label')          
 
-
 def runall():     
     retrieveTweet('data/tweetdata.txt')  
     retrieveProcessedData('processed_data/output.xlsx')
-    naive_bayes.nbTrain(x, y)
     decision_tree.datree(x, y)
-    support_vector_machine.Tsvm(x, y)
-    k_neighbours_classifier.knn(x, y)
-    random_forest.randomForest(x, y)
-    
+
 def datreeINPUT(inputtweet):
     from sklearn import tree
     train_featurestree = vectorizer.fit_transform(x)
@@ -84,15 +79,6 @@ def datreeINPUT(inputtweet):
     else:
         print("Nothing")
     
-    print("\n*****************")
-    print(predictt)
-    print("*****************")
-
     return predictt
 
 runall()
-
-print("Input your tweet : ")
-inputtweet = input()
-
-datreeINPUT(inputtweet)
